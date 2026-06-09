@@ -1,0 +1,1032 @@
+[
+  {
+    "timestamp": "2026-06-08 19:37:07",
+    "tipo": "INFO",
+    "mensagem": "Login admin realizado com sucesso",
+    "detalhes": {}
+  },
+  {
+    "timestamp": "2026-06-08 19:38:22",
+    "tipo": "EXTRAÇÃO",
+    "mensagem": "Iniciando processamento de arquivo: mov.png",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "tipo": "image/png",
+      "tamanho_kb": 72.9462890625
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:38:33",
+    "tipo": "EXTRAÇÃO",
+    "mensagem": "Extração concluída: 8 transações",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacoes_encontradas": 8,
+      "transacoes": [
+        {
+          "data": "04/05/2023",
+          "valor": 300.0,
+          "descricao": "PIX enviado para Felipe Natan Nogueira",
+          "tipo": "despesa",
+          "categoria": "Outros"
+        },
+        {
+          "data": "04/05/2023",
+          "valor": 200.83,
+          "descricao": "IFOOD com agência de restaurante",
+          "tipo": "despesa",
+          "categoria": "Alimentação"
+        },
+        {
+          "data": "04/05/2023",
+          "valor": 10.0,
+          "descricao": "PIX enviado para Gabriella Toscano de Mora",
+          "tipo": "despesa",
+          "categoria": "Outros"
+        },
+        {
+          "data": "04/05/2023",
+          "valor": 2.0,
+          "descricao": "PIX enviado para Santuário Arquidiocesano",
+          "tipo": "despesa",
+          "categoria": "Outros"
+        },
+        {
+          "data": "04/05/2023",
+          "valor": 58.98,
+          "descricao": "PIX enviado para GS Farma Comércio e Distr",
+          "tipo": "despesa",
+          "categoria": "Saúde"
+        },
+        {
+          "data": "04/05/2023",
+          "valor": 39.9,
+          "descricao": "PIX enviado para Natura AMP CO Pay Serviço",
+          "tipo": "despesa",
+          "categoria": "Pessoal"
+        },
+        {
+          "data": "04/05/2023",
+          "valor": 0.03,
+          "descricao": "IOF adicional - automático",
+          "tipo": "despesa",
+          "categoria": "Outros"
+        },
+        {
+          "data": "05/05/2023",
+          "valor": 100.0,
+          "descricao": "TED recebida de Avanade do Brasil Ltda",
+          "tipo": "renda",
+          "categoria": "Pagamento"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:39:05",
+    "tipo": "SUCESSO",
+    "mensagem": "Registro de 2 transações do arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "adicionadas": 2,
+      "duplicatas": 1,
+      "erros": 5,
+      "detalhes": [
+        {
+          "transacao": {
+            "data": "04/05/2023",
+            "valor": 300.0,
+            "descricao": "PIX enviado para Felipe Natan Nogueira",
+            "tipo": "despesa",
+            "categoria": "Outros"
+          },
+          "status": "adicionada",
+          "mensagem": "Despesa adicionada: PIX enviado para Felipe Natan Nogueira - R$300.00"
+        },
+        {
+          "transacao": {
+            "data": "04/05/2023",
+            "valor": 200.83,
+            "descricao": "IFOOD com agência de restaurante",
+            "tipo": "despesa",
+            "categoria": "Alimentação"
+          },
+          "status": "duplicata",
+          "mensagem": "Transação já existe: 04/05/2023 | R$200.83 | IFOOD com agência de restaurante"
+        },
+        {
+          "transacao": {
+            "data": "04/05/2023",
+            "valor": 10.0,
+            "descricao": "PIX enviado para Gabriella Toscano de Mora",
+            "tipo": "despesa",
+            "categoria": "Outros"
+          },
+          "status": "adicionada",
+          "mensagem": "Despesa adicionada: PIX enviado para Gabriella Toscano de Mora - R$10.00"
+        },
+        {
+          "transacao": {
+            "data": "04/05/2023",
+            "valor": 2.0,
+            "descricao": "PIX enviado para Santuário Arquidiocesano",
+            "tipo": "despesa",
+            "categoria": "Outros"
+          },
+          "status": "erro",
+          "mensagem": "Erro ao adicionar despesa"
+        },
+        {
+          "transacao": {
+            "data": "04/05/2023",
+            "valor": 58.98,
+            "descricao": "PIX enviado para GS Farma Comércio e Distr",
+            "tipo": "despesa",
+            "categoria": "Saúde"
+          },
+          "status": "erro",
+          "mensagem": "Erro ao adicionar despesa"
+        },
+        {
+          "transacao": {
+            "data": "04/05/2023",
+            "valor": 39.9,
+            "descricao": "PIX enviado para Natura AMP CO Pay Serviço",
+            "tipo": "despesa",
+            "categoria": "Pessoal"
+          },
+          "status": "erro",
+          "mensagem": "Erro ao adicionar despesa"
+        },
+        {
+          "transacao": {
+            "data": "04/05/2023",
+            "valor": 0.03,
+            "descricao": "IOF adicional - automático",
+            "tipo": "despesa",
+            "categoria": "Outros"
+          },
+          "status": "erro",
+          "mensagem": "Erro ao adicionar despesa"
+        },
+        {
+          "transacao": {
+            "data": "05/05/2023",
+            "valor": 100.0,
+            "descricao": "TED recebida de Avanade do Brasil Ltda",
+            "tipo": "renda",
+            "categoria": "Pagamento"
+          },
+          "status": "erro",
+          "mensagem": "Erro ao adicionar renda"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:39:05",
+    "tipo": "ERRO",
+    "mensagem": "Falha ao salvar transação de arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacao": {
+        "data": "04/05/2023",
+        "valor": 2.0,
+        "descricao": "PIX enviado para Santuário Arquidiocesano",
+        "tipo": "despesa",
+        "categoria": "Outros"
+      },
+      "erro": "Erro ao adicionar despesa"
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:39:05",
+    "tipo": "ERRO",
+    "mensagem": "Falha ao salvar transação de arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacao": {
+        "data": "04/05/2023",
+        "valor": 58.98,
+        "descricao": "PIX enviado para GS Farma Comércio e Distr",
+        "tipo": "despesa",
+        "categoria": "Saúde"
+      },
+      "erro": "Erro ao adicionar despesa"
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:39:05",
+    "tipo": "ERRO",
+    "mensagem": "Falha ao salvar transação de arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacao": {
+        "data": "04/05/2023",
+        "valor": 39.9,
+        "descricao": "PIX enviado para Natura AMP CO Pay Serviço",
+        "tipo": "despesa",
+        "categoria": "Pessoal"
+      },
+      "erro": "Erro ao adicionar despesa"
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:39:06",
+    "tipo": "ERRO",
+    "mensagem": "Falha ao salvar transação de arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacao": {
+        "data": "04/05/2023",
+        "valor": 0.03,
+        "descricao": "IOF adicional - automático",
+        "tipo": "despesa",
+        "categoria": "Outros"
+      },
+      "erro": "Erro ao adicionar despesa"
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:39:06",
+    "tipo": "ERRO",
+    "mensagem": "Falha ao salvar transação de arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacao": {
+        "data": "05/05/2023",
+        "valor": 100.0,
+        "descricao": "TED recebida de Avanade do Brasil Ltda",
+        "tipo": "renda",
+        "categoria": "Pagamento"
+      },
+      "erro": "Erro ao adicionar renda"
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:43:19",
+    "tipo": "EXTRAÇÃO",
+    "mensagem": "Iniciando processamento de arquivo: mov.png",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "tipo": "image/png",
+      "tamanho_kb": 72.9462890625
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:43:33",
+    "tipo": "EXTRAÇÃO",
+    "mensagem": "Extração concluída: 8 transações",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacoes_encontradas": 8,
+      "transacoes": [
+        {
+          "data": "04/05/AAAA",
+          "valor": 300.0,
+          "descricao": "PIX enviado para Felipe Natan Nogueira da",
+          "tipo": "despesa",
+          "categoria": "Outros"
+        },
+        {
+          "data": "04/05/AAAA",
+          "valor": 200.83,
+          "descricao": "IFOOD com agencia de rest",
+          "tipo": "despesa",
+          "categoria": "Alimentação"
+        },
+        {
+          "data": "04/05/AAAA",
+          "valor": 10.0,
+          "descricao": "PIX enviado para Gabriella Toscano de Mora",
+          "tipo": "despesa",
+          "categoria": "Outros"
+        },
+        {
+          "data": "04/05/AAAA",
+          "valor": 2.0,
+          "descricao": "PIX enviado para Santuario Arquidiocesano",
+          "tipo": "despesa",
+          "categoria": "Outros"
+        },
+        {
+          "data": "04/05/AAAA",
+          "valor": 58.98,
+          "descricao": "PIX enviado para GS Farma Comercio e Distr",
+          "tipo": "despesa",
+          "categoria": "Saúde"
+        },
+        {
+          "data": "04/05/AAAA",
+          "valor": 39.9,
+          "descricao": "Natura amp co pay servico",
+          "tipo": "despesa",
+          "categoria": "Pessoal"
+        },
+        {
+          "data": "04/05/AAAA",
+          "valor": 0.03,
+          "descricao": "IOF adicional - automatico",
+          "tipo": "despesa",
+          "categoria": "Outros"
+        },
+        {
+          "data": "05/05/AAAA",
+          "valor": 100.0,
+          "descricao": "TED recebida de Avanade do Brasil Ltda",
+          "tipo": "renda",
+          "categoria": "Pagamento"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:43:38",
+    "tipo": "SUCESSO",
+    "mensagem": "Registro de 0 transações do arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "adicionadas": 0,
+      "duplicatas": 0,
+      "erros": 8,
+      "detalhes": [
+        {
+          "transacao": {
+            "data": "04/05/AAAA",
+            "valor": 300.0,
+            "descricao": "PIX enviado para Felipe Natan Nogueira da",
+            "tipo": "despesa",
+            "categoria": "Outros"
+          },
+          "status": "erro",
+          "mensagem": "Erro ao adicionar despesa"
+        },
+        {
+          "transacao": {
+            "data": "04/05/AAAA",
+            "valor": 200.83,
+            "descricao": "IFOOD com agencia de rest",
+            "tipo": "despesa",
+            "categoria": "Alimentação"
+          },
+          "status": "erro",
+          "mensagem": "Erro ao adicionar despesa"
+        },
+        {
+          "transacao": {
+            "data": "04/05/AAAA",
+            "valor": 10.0,
+            "descricao": "PIX enviado para Gabriella Toscano de Mora",
+            "tipo": "despesa",
+            "categoria": "Outros"
+          },
+          "status": "erro",
+          "mensagem": "Erro ao adicionar despesa"
+        },
+        {
+          "transacao": {
+            "data": "04/05/AAAA",
+            "valor": 2.0,
+            "descricao": "PIX enviado para Santuario Arquidiocesano",
+            "tipo": "despesa",
+            "categoria": "Outros"
+          },
+          "status": "erro",
+          "mensagem": "Erro ao adicionar despesa"
+        },
+        {
+          "transacao": {
+            "data": "04/05/AAAA",
+            "valor": 58.98,
+            "descricao": "PIX enviado para GS Farma Comercio e Distr",
+            "tipo": "despesa",
+            "categoria": "Saúde"
+          },
+          "status": "erro",
+          "mensagem": "Erro ao adicionar despesa"
+        },
+        {
+          "transacao": {
+            "data": "04/05/AAAA",
+            "valor": 39.9,
+            "descricao": "Natura amp co pay servico",
+            "tipo": "despesa",
+            "categoria": "Pessoal"
+          },
+          "status": "erro",
+          "mensagem": "Erro ao adicionar despesa"
+        },
+        {
+          "transacao": {
+            "data": "04/05/AAAA",
+            "valor": 0.03,
+            "descricao": "IOF adicional - automatico",
+            "tipo": "despesa",
+            "categoria": "Outros"
+          },
+          "status": "erro",
+          "mensagem": "Erro ao adicionar despesa"
+        },
+        {
+          "transacao": {
+            "data": "05/05/AAAA",
+            "valor": 100.0,
+            "descricao": "TED recebida de Avanade do Brasil Ltda",
+            "tipo": "renda",
+            "categoria": "Pagamento"
+          },
+          "status": "erro",
+          "mensagem": "Erro ao adicionar renda"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:43:38",
+    "tipo": "ERRO",
+    "mensagem": "Falha ao salvar transação de arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacao": {
+        "data": "04/05/AAAA",
+        "valor": 300.0,
+        "descricao": "PIX enviado para Felipe Natan Nogueira da",
+        "tipo": "despesa",
+        "categoria": "Outros"
+      },
+      "erro": "Erro ao adicionar despesa"
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:43:38",
+    "tipo": "ERRO",
+    "mensagem": "Falha ao salvar transação de arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacao": {
+        "data": "04/05/AAAA",
+        "valor": 200.83,
+        "descricao": "IFOOD com agencia de rest",
+        "tipo": "despesa",
+        "categoria": "Alimentação"
+      },
+      "erro": "Erro ao adicionar despesa"
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:43:38",
+    "tipo": "ERRO",
+    "mensagem": "Falha ao salvar transação de arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacao": {
+        "data": "04/05/AAAA",
+        "valor": 10.0,
+        "descricao": "PIX enviado para Gabriella Toscano de Mora",
+        "tipo": "despesa",
+        "categoria": "Outros"
+      },
+      "erro": "Erro ao adicionar despesa"
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:43:38",
+    "tipo": "ERRO",
+    "mensagem": "Falha ao salvar transação de arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacao": {
+        "data": "04/05/AAAA",
+        "valor": 2.0,
+        "descricao": "PIX enviado para Santuario Arquidiocesano",
+        "tipo": "despesa",
+        "categoria": "Outros"
+      },
+      "erro": "Erro ao adicionar despesa"
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:43:38",
+    "tipo": "ERRO",
+    "mensagem": "Falha ao salvar transação de arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacao": {
+        "data": "04/05/AAAA",
+        "valor": 58.98,
+        "descricao": "PIX enviado para GS Farma Comercio e Distr",
+        "tipo": "despesa",
+        "categoria": "Saúde"
+      },
+      "erro": "Erro ao adicionar despesa"
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:43:38",
+    "tipo": "ERRO",
+    "mensagem": "Falha ao salvar transação de arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacao": {
+        "data": "04/05/AAAA",
+        "valor": 39.9,
+        "descricao": "Natura amp co pay servico",
+        "tipo": "despesa",
+        "categoria": "Pessoal"
+      },
+      "erro": "Erro ao adicionar despesa"
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:43:38",
+    "tipo": "ERRO",
+    "mensagem": "Falha ao salvar transação de arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacao": {
+        "data": "04/05/AAAA",
+        "valor": 0.03,
+        "descricao": "IOF adicional - automatico",
+        "tipo": "despesa",
+        "categoria": "Outros"
+      },
+      "erro": "Erro ao adicionar despesa"
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:43:38",
+    "tipo": "ERRO",
+    "mensagem": "Falha ao salvar transação de arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacao": {
+        "data": "05/05/AAAA",
+        "valor": 100.0,
+        "descricao": "TED recebida de Avanade do Brasil Ltda",
+        "tipo": "renda",
+        "categoria": "Pagamento"
+      },
+      "erro": "Erro ao adicionar renda"
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:44:04",
+    "tipo": "INFO",
+    "mensagem": "Login admin realizado com sucesso",
+    "detalhes": {}
+  },
+  {
+    "timestamp": "2026-06-08 19:47:47",
+    "tipo": "INFO",
+    "mensagem": "Login admin realizado com sucesso",
+    "detalhes": {}
+  },
+  {
+    "timestamp": "2026-06-08 19:48:45",
+    "tipo": "EXTRAÇÃO",
+    "mensagem": "Iniciando processamento de arquivo: mov.png",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "tipo": "image/png",
+      "tamanho_kb": 72.9462890625
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:49:01",
+    "tipo": "EXTRAÇÃO",
+    "mensagem": "Extração concluída: 8 transações",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacoes_encontradas": 8,
+      "transacoes": [
+        {
+          "data": "04/05/AAAA",
+          "valor": 300.0,
+          "descricao": "PIX enviado para Felipe Natan Nogueira",
+          "tipo": "despesa",
+          "categoria": "Outros"
+        },
+        {
+          "data": "04/05/AAAA",
+          "valor": 200.83,
+          "descricao": "IFOOD com agencia",
+          "tipo": "despesa",
+          "categoria": "Alimentação"
+        },
+        {
+          "data": "04/05/AAAA",
+          "valor": 10.0,
+          "descricao": "PIX enviado para Gabriella Toscano",
+          "tipo": "despesa",
+          "categoria": "Outros"
+        },
+        {
+          "data": "04/05/AAAA",
+          "valor": 2.0,
+          "descricao": "Santuario",
+          "tipo": "despesa",
+          "categoria": "Outros"
+        },
+        {
+          "data": "04/05/AAAA",
+          "valor": 58.98,
+          "descricao": "GS Farma",
+          "tipo": "despesa",
+          "categoria": "Saúde"
+        },
+        {
+          "data": "04/05/AAAA",
+          "valor": 39.9,
+          "descricao": "Natura",
+          "tipo": "despesa",
+          "categoria": "Pessoal"
+        },
+        {
+          "data": "04/05/AAAA",
+          "valor": 0.03,
+          "descricao": "IOF",
+          "tipo": "despesa",
+          "categoria": "Outros"
+        },
+        {
+          "data": "05/05/AAAA",
+          "valor": 100.0,
+          "descricao": "TED recebida de Avanade do Brasil",
+          "tipo": "renda",
+          "categoria": "Pagamento"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:49:32",
+    "tipo": "SUCESSO",
+    "mensagem": "Registro de 2 transações do arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "adicionadas": 2,
+      "duplicatas": 1,
+      "erros": 5,
+      "detalhes": [
+        {
+          "transacao": {
+            "data": "04/05/AAAA",
+            "valor": 300.0,
+            "descricao": "PIX enviado para Felipe Natan Nogueira",
+            "tipo": "despesa",
+            "categoria": "Outros"
+          },
+          "status": "adicionada",
+          "mensagem": "Despesa adicionada: PIX enviado para Felipe Natan Nogueira - R$300.00"
+        },
+        {
+          "transacao": {
+            "data": "04/05/AAAA",
+            "valor": 200.83,
+            "descricao": "IFOOD com agencia",
+            "tipo": "despesa",
+            "categoria": "Alimentação"
+          },
+          "status": "duplicata",
+          "mensagem": "Transação já existe: 04/05/AAAA | R$200.83 | IFOOD com agencia"
+        },
+        {
+          "transacao": {
+            "data": "04/05/AAAA",
+            "valor": 10.0,
+            "descricao": "PIX enviado para Gabriella Toscano",
+            "tipo": "despesa",
+            "categoria": "Outros"
+          },
+          "status": "adicionada",
+          "mensagem": "Despesa adicionada: PIX enviado para Gabriella Toscano - R$10.00"
+        },
+        {
+          "transacao": {
+            "data": "04/05/AAAA",
+            "valor": 2.0,
+            "descricao": "Santuario",
+            "tipo": "despesa",
+            "categoria": "Outros"
+          },
+          "status": "erro",
+          "mensagem": "Erro ao adicionar despesa"
+        },
+        {
+          "transacao": {
+            "data": "04/05/AAAA",
+            "valor": 58.98,
+            "descricao": "GS Farma",
+            "tipo": "despesa",
+            "categoria": "Saúde"
+          },
+          "status": "erro",
+          "mensagem": "Erro ao adicionar despesa"
+        },
+        {
+          "transacao": {
+            "data": "04/05/AAAA",
+            "valor": 39.9,
+            "descricao": "Natura",
+            "tipo": "despesa",
+            "categoria": "Pessoal"
+          },
+          "status": "erro",
+          "mensagem": "Erro ao adicionar despesa"
+        },
+        {
+          "transacao": {
+            "data": "04/05/AAAA",
+            "valor": 0.03,
+            "descricao": "IOF",
+            "tipo": "despesa",
+            "categoria": "Outros"
+          },
+          "status": "erro",
+          "mensagem": "Erro ao adicionar despesa"
+        },
+        {
+          "transacao": {
+            "data": "05/05/AAAA",
+            "valor": 100.0,
+            "descricao": "TED recebida de Avanade do Brasil",
+            "tipo": "renda",
+            "categoria": "Pagamento"
+          },
+          "status": "erro",
+          "mensagem": "Erro ao adicionar renda"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:49:32",
+    "tipo": "ERRO",
+    "mensagem": "Falha ao salvar transação de arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacao": {
+        "data": "04/05/AAAA",
+        "valor": 2.0,
+        "descricao": "Santuario",
+        "tipo": "despesa",
+        "categoria": "Outros"
+      },
+      "erro": "Erro ao adicionar despesa"
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:49:32",
+    "tipo": "ERRO",
+    "mensagem": "Falha ao salvar transação de arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacao": {
+        "data": "04/05/AAAA",
+        "valor": 58.98,
+        "descricao": "GS Farma",
+        "tipo": "despesa",
+        "categoria": "Saúde"
+      },
+      "erro": "Erro ao adicionar despesa"
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:49:32",
+    "tipo": "ERRO",
+    "mensagem": "Falha ao salvar transação de arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacao": {
+        "data": "04/05/AAAA",
+        "valor": 39.9,
+        "descricao": "Natura",
+        "tipo": "despesa",
+        "categoria": "Pessoal"
+      },
+      "erro": "Erro ao adicionar despesa"
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:49:32",
+    "tipo": "ERRO",
+    "mensagem": "Falha ao salvar transação de arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacao": {
+        "data": "04/05/AAAA",
+        "valor": 0.03,
+        "descricao": "IOF",
+        "tipo": "despesa",
+        "categoria": "Outros"
+      },
+      "erro": "Erro ao adicionar despesa"
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:49:32",
+    "tipo": "ERRO",
+    "mensagem": "Falha ao salvar transação de arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacao": {
+        "data": "05/05/AAAA",
+        "valor": 100.0,
+        "descricao": "TED recebida de Avanade do Brasil",
+        "tipo": "renda",
+        "categoria": "Pagamento"
+      },
+      "erro": "Erro ao adicionar renda"
+    }
+  },
+  {
+    "timestamp": "2026-06-08 19:50:31",
+    "tipo": "INFO",
+    "mensagem": "Login admin realizado com sucesso",
+    "detalhes": {}
+  },
+  {
+    "timestamp": "2026-06-08 20:40:07",
+    "tipo": "EXTRAÇÃO",
+    "mensagem": "Iniciando processamento de arquivo: mov.png",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "tipo": "image/png",
+      "tamanho_kb": 72.9462890625
+    }
+  },
+  {
+    "timestamp": "2026-06-08 20:40:26",
+    "tipo": "EXTRAÇÃO",
+    "mensagem": "Extração concluída: 8 transações",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "transacoes_encontradas": 8,
+      "transacoes": [
+        {
+          "data": "04/05",
+          "valor": 300.0,
+          "descricao": "PIX ENVIADO Felipe Natan Nogueira da",
+          "tipo": "despesa",
+          "categoria": "outros"
+        },
+        {
+          "data": "04/05",
+          "valor": 200.83,
+          "descricao": "PIX ENVIADO IFOOD COM AGENCIA DE REST",
+          "tipo": "despesa",
+          "categoria": "alimentação"
+        },
+        {
+          "data": "04/05",
+          "valor": 10.0,
+          "descricao": "PIX ENVIADO Gabriella Toscano de Mora",
+          "tipo": "despesa",
+          "categoria": "outros"
+        },
+        {
+          "data": "04/05",
+          "valor": 2.0,
+          "descricao": "PIX ENVIADO Santuario Arquidiocesano",
+          "tipo": "despesa",
+          "categoria": "outros"
+        },
+        {
+          "data": "04/05",
+          "valor": 58.98,
+          "descricao": "PIX ENVIADO GS FARMA COMERCIO E DISTR",
+          "tipo": "despesa",
+          "categoria": "saúde"
+        },
+        {
+          "data": "04/05",
+          "valor": 39.9,
+          "descricao": "PIX ENVIADO NATURA amp CO PAY SERVICO",
+          "tipo": "despesa",
+          "categoria": "pessoal"
+        },
+        {
+          "data": "04/05",
+          "valor": 0.03,
+          "descricao": "IOF ADICIONAL - AUTOMATICO PERIODO: 01/04 A 30/04/26",
+          "tipo": "despesa",
+          "categoria": "outros"
+        },
+        {
+          "data": "05/05",
+          "valor": 100.0,
+          "descricao": "TED RECEBIDA AVANADE DO BRASIL LTDA",
+          "tipo": "renda",
+          "categoria": "pagamento"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-06-08 20:40:48",
+    "tipo": "SUCESSO",
+    "mensagem": "Registro de 7 transações do arquivo",
+    "detalhes": {
+      "arquivo": "mov.png",
+      "adicionadas": 7,
+      "duplicatas": 1,
+      "erros": 0,
+      "detalhes": [
+        {
+          "transacao": {
+            "data": "04/05",
+            "valor": 300.0,
+            "descricao": "PIX ENVIADO Felipe Natan Nogueira da",
+            "tipo": "despesa",
+            "categoria": "outros"
+          },
+          "status": "adicionada",
+          "mensagem": "Despesa adicionada: PIX ENVIADO Felipe Natan Nogueira da - R$300.00"
+        },
+        {
+          "transacao": {
+            "data": "04/05",
+            "valor": 200.83,
+            "descricao": "PIX ENVIADO IFOOD COM AGENCIA DE REST",
+            "tipo": "despesa",
+            "categoria": "alimentação"
+          },
+          "status": "adicionada",
+          "mensagem": "Despesa adicionada: PIX ENVIADO IFOOD COM AGENCIA DE REST - R$200.83"
+        },
+        {
+          "transacao": {
+            "data": "04/05",
+            "valor": 10.0,
+            "descricao": "PIX ENVIADO Gabriella Toscano de Mora",
+            "tipo": "despesa",
+            "categoria": "outros"
+          },
+          "status": "adicionada",
+          "mensagem": "Despesa adicionada: PIX ENVIADO Gabriella Toscano de Mora - R$10.00"
+        },
+        {
+          "transacao": {
+            "data": "04/05",
+            "valor": 2.0,
+            "descricao": "PIX ENVIADO Santuario Arquidiocesano",
+            "tipo": "despesa",
+            "categoria": "outros"
+          },
+          "status": "adicionada",
+          "mensagem": "Despesa adicionada: PIX ENVIADO Santuario Arquidiocesano - R$2.00"
+        },
+        {
+          "transacao": {
+            "data": "04/05",
+            "valor": 58.98,
+            "descricao": "PIX ENVIADO GS FARMA COMERCIO E DISTR",
+            "tipo": "despesa",
+            "categoria": "saúde"
+          },
+          "status": "adicionada",
+          "mensagem": "Despesa adicionada: PIX ENVIADO GS FARMA COMERCIO E DISTR - R$58.98"
+        },
+        {
+          "transacao": {
+            "data": "04/05",
+            "valor": 39.9,
+            "descricao": "PIX ENVIADO NATURA amp CO PAY SERVICO",
+            "tipo": "despesa",
+            "categoria": "pessoal"
+          },
+          "status": "adicionada",
+          "mensagem": "Despesa adicionada: PIX ENVIADO NATURA amp CO PAY SERVICO - R$39.90"
+        },
+        {
+          "transacao": {
+            "data": "04/05",
+            "valor": 0.03,
+            "descricao": "IOF ADICIONAL - AUTOMATICO PERIODO: 01/04 A 30/04/26",
+            "tipo": "despesa",
+            "categoria": "outros"
+          },
+          "status": "adicionada",
+          "mensagem": "Despesa adicionada: IOF ADICIONAL - AUTOMATICO PERIODO: 01/04 A 30/04/26 - R$0.03"
+        },
+        {
+          "transacao": {
+            "data": "05/05",
+            "valor": 100.0,
+            "descricao": "TED RECEBIDA AVANADE DO BRASIL LTDA",
+            "tipo": "renda",
+            "categoria": "pagamento"
+          },
+          "status": "duplicata",
+          "mensagem": "Transação já existe: 05/05/2026 | R$100.00 | TED RECEBIDA AVANADE DO BRASIL LTDA"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-06-08 21:38:44",
+    "tipo": "INFO",
+    "mensagem": "Login admin realizado",
+    "detalhes": {}
+  }
+]

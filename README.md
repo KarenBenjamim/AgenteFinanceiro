@@ -273,7 +273,7 @@ gastos com Alimentação (delivery/restaurantes).
 ```
 Agente finaceiro/
 ├── .venv/
-│   └── scr/
+│   └── src/
 │       ├── .env                    # Variáveis de ambiente (NÃO COMMITAR!)
 │       ├── .env.example            # Template das variáveis
 │       ├── config.py               # Carrega configurações do .env
@@ -281,7 +281,7 @@ Agente finaceiro/
 │       ├── Main.py                 # Fluxo principal do assistente
 │       ├── agente_orquestrador.py  # Classifica mensagens
 │       ├── agente_extracao.py      # Extrai dados financeiros
-│       ├── agente_concelheiro.py   # Análise e conselhos
+│       ├── agente_conselheiro.py   # Análise e conselhos
 │       └── google_sheets_connector.py  # Integração com Sheets
 ├── .gitignore
 ├── requirements.txt
@@ -295,7 +295,7 @@ Agente finaceiro/
 | `Main.py` | Ponto de entrada. Orquestra o fluxo entre agentes |
 | `agente_orquestrador.py` | Classifica input como "dados" ou "assunto" |
 | `agente_extracao.py` | Extrai Data, Valor, Descrição, Categoria do texto |
-| `agente_concelheiro.py` | Lê planilha e dá conselhos baseados no histórico |
+| `agente_conselheiro.py` | Lê planilha e dá conselhos baseados no histórico |
 | `google_sheets_connector.py` | CRUD na planilha Google Sheets |
 | `config.py` | Centraliza carregamento de variáveis de ambiente |
 
@@ -402,7 +402,7 @@ extrair_dados(mensagem_usuario: str) -> dict
 }
 ```
 
-### agente_concelheiro.py
+### agente_conselheiro.py
 
 ```python
 # Analisar finanças e dar conselhos
