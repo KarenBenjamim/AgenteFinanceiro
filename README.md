@@ -185,7 +185,23 @@ Crie uma aba chamada **"Transações"** com a estrutura:
 
 ## 🎮 Como Usar
 
-### Executar o Assistente
+### Interface Web (Recomendado)
+
+```bash
+cd .venv\scr
+streamlit run app.py
+```
+
+A interface abrirá automaticamente no navegador em `http://localhost:8501`
+
+**Funcionalidades da Interface:**
+- 🏠 **Início** - Resumo rápido das suas finanças
+- 💬 **Chat** - Converse com a IA em linguagem natural
+- ➕ **Nova Transação** - Formulário para adicionar despesas/rendas
+- 📊 **Dashboard** - Gráficos e análises visuais
+- 📋 **Histórico** - Lista completa de transações
+
+### Terminal (Alternativo)
 
 ```bash
 cd .venv\scr
