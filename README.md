@@ -22,6 +22,7 @@ Sistema de gerenciamento financeiro pessoal com IA, integrado ao Google Sheets.
 O Agente Financeiro é um assistente inteligente que utiliza **Azure OpenAI GPT-4o** para:
 
 - ✅ **Registrar transações** automaticamente (despesas e rendas)
+- ✅ **Extrair transações de PDFs e imagens** (extratos bancários, prints)
 - ✅ **Classificar gastos** em categorias predefinidas
 - ✅ **Analisar padrões** de consumo
 - ✅ **Fazer previsões** financeiras baseadas no histórico
@@ -38,41 +39,59 @@ O sistema utiliza uma arquitetura de **multi-agentes** orquestrados:
 ┌─────────────────────────────────────────────────────────────┐
 │                      USUÁRIO                                 │
 │              "Gastei R$200 no mercado ontem"                │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│                  AGENTE ORQUESTRADOR                        │
-│         Classifica: "dados" ou "assunto"                    │
-│                                                              │
-│  • dados → transações financeiras para registro             │
-│  • assunto → perguntas, análises, conselhos                │
+│                    ou arquivo PDF/imagem                    │
 └─────────────────────────────────────────────────────────────┘
                               │
               ┌───────────────┴───────────────┐
               │                               │
               ▼                               ▼
 ┌─────────────────────────┐     ┌─────────────────────────────┐
-│   AGENTE DE EXTRAÇÃO    │     │    AGENTE CONSELHEIRO       │
+│    AGENTE LEITOR        │     │    AGENTE ORQUESTRADOR      │
 │                         │     │                             │
-│  • Extrai Data          │     │  • Lê dados da planilha     │
-│  • Extrai Valor         │     │  • Analisa histórico        │
-│  • Extrai Descrição     │     │  • Identifica padrões       │
-│  • Classifica Categoria │     │  • Faz previsões            │
-│                         │     │  • Sugere economia          │
+│  • Processa PDF/Imagem  │     │  Classifica: "dados"        │
+│  • Extrai via Vision    │     │         ou "assunto"        │
+│  • GPT-4o para OCR      │     │                             │
+│  • Valida duplicatas    │     │  • dados → transações       │
+│                         │     │  • assunto → conselhos      │
 └─────────────────────────┘     └─────────────────────────────┘
               │                               │
-              ▼                               ▼
+              │               ┌───────────────┴───────────────┐
+              │               │                               │
+              │               ▼                               ▼
+              │     ┌─────────────────────────┐     ┌─────────────────────────┐
+              │     │   AGENTE DE EXTRAÇÃO    │     │    AGENTE CONSELHEIRO   │
+              │     │                         │     │                         │
+              │     │  • Extrai Data          │     │  • Lê dados da planilha │
+              │     │  • Extrai Valor         │     │  • Analisa histórico    │
+              │     │  • Extrai Descrição     │     │  • Identifica padrões   │
+              │     │  • Classifica Categoria │     │  • Faz previsões        │
+              │     │                         │     │  • Sugere economia      │
+              │     └─────────────────────────┘     └─────────────────────────┘
+              │               │                               │
+              └───────────────┼───────────────────────────────┘
+                              ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                    GOOGLE SHEETS                            │
+│                    DATA MANAGER                             │
+│         Gerencia múltiplos destinos de dados                │
 │                                                              │
-│  ┌──────────────────┐    ┌──────────────────────────┐      │
-│  │    DESPESAS      │    │         RENDAS           │      │
-│  │  B5: Data        │    │      G5: Data            │      │
-│  │  C5: Valor       │    │      H5: Valor           │      │
-│  │  D5: Descrição   │    │      I5: Descrição       │      │
-│  │  E5: Categoria   │    │      J5: Categoria       │      │
-│  └──────────────────┘    └──────────────────────────┘      │
+│  ┌────────────────────┐    ┌────────────────────┐          │
+│  │   GOOGLE SHEETS    │    │    SQL SERVER      │          │
+│  │                    │    │    (opcional)      │          │
+│  │  ┌──────────────┐  │    │                    │          │
+│  │  │  DESPESAS    │  │    │  ┌──────────────┐  │          │
+│  │  │  B5: Data    │  │    │  │  Despesas    │  │          │
+│  │  │  C5: Valor   │  │    │  │  Rendas      │  │          │
+│  │  │  D5: Desc    │  │    │  └──────────────┘  │          │
+│  │  │  E5: Cat     │  │    │                    │          │
+│  │  └──────────────┘  │    │                    │          │
+│  │  ┌──────────────┐  │    │                    │          │
+│  │  │   RENDAS     │  │    │                    │          │
+│  │  │  G5: Data    │  │    │                    │          │
+│  │  │  H5: Valor   │  │    │                    │          │
+│  │  │  I5: Desc    │  │    │                    │          │
+│  │  │  J5: Cat     │  │    │                    │          │
+│  │  └──────────────┘  │    │                    │          │
+│  └────────────────────┘    └────────────────────┘          │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -95,6 +114,9 @@ gspread>=5.10.0
 google-auth>=2.20.0
 google-auth-oauthlib>=1.0.0
 python-dotenv>=1.0.0
+streamlit>=1.28.0
+pdfplumber>=0.10.0
+Pillow>=10.0.0
 ```
 
 ---
@@ -135,7 +157,7 @@ pip install -r requirements.txt
 Copie o arquivo de exemplo e configure suas credenciais:
 
 ```bash
-cd .venv\scr
+cd src
 copy .env.example .env
 ```
 
@@ -163,7 +185,7 @@ GOOGLE_SPREADSHEET_ID=id-da-sua-planilha
 4. Vá em **IAM & Admin > Service Accounts**
 5. Crie uma Service Account
 6. Gere uma chave JSON
-7. Salve como `credentials.json` na pasta `.venv\scr\`
+7. Salve como `credentials.json` na pasta `src/`
 8. Compartilhe sua planilha com o email da Service Account
 
 ### 3. Estrutura da Planilha
@@ -188,7 +210,7 @@ Crie uma aba chamada **"Transações"** com a estrutura:
 ### Interface Web (Recomendado)
 
 ```bash
-cd .venv\scr
+cd src
 streamlit run app.py
 ```
 
@@ -204,7 +226,7 @@ A interface abrirá automaticamente no navegador em `http://localhost:8501`
 ### Terminal (Alternativo)
 
 ```bash
-cd .venv\scr
+cd src
 python Main.py
 ```
 
@@ -272,17 +294,22 @@ gastos com Alimentação (delivery/restaurantes).
 
 ```
 Agente finaceiro/
-├── .venv/
-│   └── src/
-│       ├── .env                    # Variáveis de ambiente (NÃO COMMITAR!)
-│       ├── .env.example            # Template das variáveis
-│       ├── config.py               # Carrega configurações do .env
-│       ├── credentials.json        # Credenciais Google (NÃO COMMITAR!)
-│       ├── Main.py                 # Fluxo principal do assistente
-│       ├── agente_orquestrador.py  # Classifica mensagens
-│       ├── agente_extracao.py      # Extrai dados financeiros
-│       ├── agente_conselheiro.py   # Análise e conselhos
-│       └── google_sheets_connector.py  # Integração com Sheets
+├── src/
+│   ├── .env                    # Variáveis de ambiente (NÃO COMMITAR!)
+│   ├── .env.example            # Template das variáveis
+│   ├── config.py               # Carrega configurações do .env
+│   ├── credentials.json        # Credenciais Google (NÃO COMMITAR!)
+│   ├── Main.py                 # Fluxo principal do assistente
+│   ├── app.py                  # Interface web Streamlit
+│   ├── agente_orquestrador.py  # Classifica mensagens
+│   ├── agente_extracao.py      # Extrai dados financeiros de texto
+│   ├── agente_leitor.py        # Extrai transações de PDFs e imagens
+│   ├── agente_conselheiro.py   # Análise e conselhos
+│   ├── data_manager.py         # Gerenciador central de dados
+│   ├── google_sheets_connector.py  # Integração com Google Sheets
+│   ├── sql_server_connector.py # Integração com SQL Server (opcional)
+│   ├── utils.py                # Funções utilitárias compartilhadas
+│   └── logs/                   # Logs de administração
 ├── .gitignore
 ├── requirements.txt
 └── README.md
@@ -293,10 +320,15 @@ Agente finaceiro/
 | Arquivo | Descrição |
 |---------|-----------|
 | `Main.py` | Ponto de entrada. Orquestra o fluxo entre agentes |
+| `app.py` | Interface web interativa com Streamlit |
 | `agente_orquestrador.py` | Classifica input como "dados" ou "assunto" |
 | `agente_extracao.py` | Extrai Data, Valor, Descrição, Categoria do texto |
+| `agente_leitor.py` | Extrai transações de PDFs e imagens usando GPT-4o Vision |
 | `agente_conselheiro.py` | Lê planilha e dá conselhos baseados no histórico |
+| `data_manager.py` | Gerencia salvamento em múltiplos destinos (Sheets/SQL) |
 | `google_sheets_connector.py` | CRUD na planilha Google Sheets |
+| `sql_server_connector.py` | CRUD no banco SQL Server (opcional) |
+| `utils.py` | Funções utilitárias (normalização de datas, formatação) |
 | `config.py` | Centraliza carregamento de variáveis de ambiente |
 
 ---
@@ -352,6 +384,27 @@ Agente finaceiro/
 "Quero juntar R$5000, como faço?"
 "Compare meus gastos dos últimos 3 meses"
 "Quais minhas maiores despesas?"
+```
+
+### Extrair de Arquivos
+
+O sistema suporta extração automática de transações de:
+- **PDF**: Extratos bancários, faturas, comprovantes
+- **Imagens**: PNG, JPG, JPEG, GIF, WEBP (prints de extratos, comprovantes)
+
+```bash
+# Via terminal
+cd src
+python agente_leitor.py
+
+# Exemplo de uso
+📂 Caminho do arquivo: C:\Users\fulano\Downloads\extrato.pdf
+📄 Processando PDF...
+✅ Encontradas 15 transações
+📝 Registrando na planilha...
+   Adicionadas: 12
+   Duplicatas: 3
+   Erros: 0
 ```
 
 ---
@@ -420,6 +473,92 @@ analise_mensagem(mensagem_usuario: str, dados_planilha: dict = None) -> dict
 }
 ```
 
+### agente_leitor.py
+
+```python
+# Processar arquivo e registrar transações encontradas
+processar_e_registrar(arquivo: Union[str, bytes], nome_arquivo: str = "") -> dict
+
+# Processar arquivo e extrair transações (sem registrar)
+processar_arquivo(arquivo: Union[str, bytes], nome_arquivo: str = "") -> dict
+
+# Extrair texto de um PDF
+extrair_texto_pdf(arquivo_pdf: Union[str, bytes, BytesIO]) -> Optional[str]
+
+# Extrair transações de uma imagem usando GPT-4o Vision
+extrair_transacoes_de_imagem(imagem: Union[str, bytes, Image]) -> dict
+```
+
+**Exemplo:**
+```python
+from agente_leitor import processar_e_registrar
+
+# Processar PDF de extrato bancário
+resultado = processar_e_registrar("extrato_maio.pdf")
+print(f"Extraídas: {resultado['extraidas']}")
+print(f"Registradas: {resultado['registradas']}")
+print(f"Duplicatas: {resultado['duplicatas']}")
+
+# Processar print de extrato
+resultado = processar_e_registrar("print_extrato.png")
+```
+
+**Retorno:**
+```json
+{
+  "extraidas": 15,
+  "registradas": 12,
+  "duplicatas": 3,
+  "erros": 0,
+  "observacoes": [],
+  "detalhes": [
+    {"transacao": {...}, "status": "adicionada", "mensagem": "OK"},
+    {"transacao": {...}, "status": "duplicata", "mensagem": "Já existe"}
+  ]
+}
+```
+
+### data_manager.py
+
+```python
+# Registrar despesa sem duplicar
+registrar_despesa_sem_duplicar(data: str, valor: float, descricao: str, categoria: str) -> dict
+
+# Registrar renda sem duplicar
+registrar_renda_sem_duplicar(data: str, valor: float, descricao: str, categoria: str) -> dict
+```
+
+**Retorno:**
+```json
+{
+  "sucesso": true,
+  "duplicata": false,
+  "mensagem": "Despesa registrada com sucesso"
+}
+```
+
+### utils.py
+
+```python
+# Normalizar data (adiciona ano atual se não tiver)
+normalizar_data(data: str) -> str
+
+# Formatar valor como moeda brasileira
+formatar_moeda(valor: float) -> str
+
+# Converter string de valor para float
+processar_valor(valor_str: str) -> float
+```
+
+**Exemplo:**
+```python
+from utils import normalizar_data, formatar_moeda
+
+normalizar_data("05/06")        # "05/06/2026"
+normalizar_data("05/06/24")     # "05/06/2024"
+formatar_moeda(1500.50)         # "R$ 1.500,50"
+```
+
 ---
 
 ## 🔒 Segurança
@@ -442,9 +581,9 @@ O `.gitignore` já está configurado para ignorá-los.
 
 ### Erro: "Não foi possível resolver a importação"
 
-Execute o script de dentro da pasta `scr`:
+Execute o script de dentro da pasta `src`:
 ```bash
-cd .venv\scr
+cd src
 python Main.py
 ```
 
