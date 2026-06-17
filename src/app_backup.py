@@ -225,16 +225,27 @@ st.markdown("""
     }
     
     /* Botões */
-    .stButton > button {
+    .stButton > button,
+    .stFormSubmitButton > button,
+    button[data-testid^="baseButton"] {
         background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-        color: white;
+        color: #ffffff !important;
         border: none;
         border-radius: 8px;
         padding: 0.5rem 1rem;
     }
     
-    .stButton > button:hover {
+    .stButton > button *,
+    .stFormSubmitButton > button *,
+    button[data-testid^="baseButton"] * {
+        color: #ffffff !important;
+    }
+    
+    .stButton > button:hover,
+    .stFormSubmitButton > button:hover,
+    button[data-testid^="baseButton"]:hover {
         background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+        color: #ffffff !important;
     }
     
     /* Inputs */
@@ -1128,7 +1139,7 @@ elif pagina == "🔐 Admin (Logs)":
 st.markdown("---")
 st.markdown(
     "<div style='text-align: center; color: gray;'>"
-    "💰 Agente Financeiro Inteligente | Desenvolvido com IA"
+    "💰Agente Financeiro Inteligente | MykAI"
     "</div>",
     unsafe_allow_html=True
 )

@@ -15,9 +15,11 @@ import pandas as pd
 import plotly.express as px
 from pathlib import Path
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
 
 # Adiciona o diretório atual ao path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+load_dotenv(Path(os.path.dirname(os.path.abspath(__file__))) / ".env")
 
 # ============================================================
 # SISTEMA DE LOGGING
@@ -292,7 +294,9 @@ st.markdown("""
     }
     
     /* ========== BOTÕES ========== */
-    .stButton > button {
+    .stButton > button,
+    .stFormSubmitButton > button,
+    button[data-testid^="baseButton"] {
         background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
         color: #FFFFFF !important;
         border: none;
@@ -302,19 +306,31 @@ st.markdown("""
         transition: all 0.2s ease;
     }
     
-    .stButton > button:hover {
+    .stButton > button *,
+    .stFormSubmitButton > button *,
+    button[data-testid^="baseButton"] * {
+        color: #FFFFFF !important;
+    }
+    
+    .stButton > button:hover,
+    .stFormSubmitButton > button:hover,
+    button[data-testid^="baseButton"]:hover {
         background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
         box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
         color: #FFFFFF !important;
     }
     
-    .stButton > button[kind="secondary"] {
+    .stButton > button[kind="secondary"],
+    .stFormSubmitButton > button[kind="secondary"],
+    button[data-testid="baseButton-secondary"] {
         background: #1E293B;
         color: #FFFFFF !important;
         border: 1px solid #334155;
     }
     
-    .stButton > button[kind="secondary"]:hover {
+    .stButton > button[kind="secondary"]:hover,
+    .stFormSubmitButton > button[kind="secondary"]:hover,
+    button[data-testid="baseButton-secondary"]:hover {
         background: #334155;
         color: #FFFFFF !important;
     }
@@ -552,6 +568,9 @@ if 'transacoes_pendentes' not in st.session_state:
 
 if 'tipo_transacao' not in st.session_state:
     st.session_state.tipo_transacao = "despesa"
+
+if 'admin_autenticado' not in st.session_state:
+    st.session_state.admin_autenticado = False
 
 # ============================================================
 # FUNÇÕES AUXILIARES
@@ -1134,6 +1153,34 @@ elif pagina == "Histórico":
 
 elif pagina == "Admin (Logs)":
     st.markdown('<h1 class="main-title">Painel Admin & Logs do Sistema</h1>', unsafe_allow_html=True)
+
+    if not ADMIN_PASSWORD:
+        st.error("Senha de administrador não configurada.")
+        st.info("Configure ADMIN_PASSWORD no arquivo .env para liberar o acesso ao painel Admin.")
+        st.stop()
+
+    if not st.session_state.admin_autenticado:
+        st.markdown('<p class="section-title">Login Admin</p>', unsafe_allow_html=True)
+        with st.form("admin_login_form"):
+            senha_admin = st.text_input("Senha", type="password")
+            entrar = st.form_submit_button("Entrar", use_container_width=True, type="primary")
+
+        if entrar:
+            if senha_admin == ADMIN_PASSWORD:
+                st.session_state.admin_autenticado = True
+                registrar_log("SUCESSO", "Login admin realizado")
+                st.rerun()
+            else:
+                registrar_log("ERRO", "Tentativa de login admin com senha inválida")
+                st.error("Senha inválida.")
+
+        st.stop()
+
+    col_sair, col_spacer = st.columns([1, 5])
+    with col_sair:
+        if st.button("Sair", use_container_width=True):
+            st.session_state.admin_autenticado = False
+            st.rerun()
     
     # Layout em duas colunas
     col_logs, col_config = st.columns([6, 4])
@@ -1248,7 +1295,7 @@ st.markdown("---")
 st.markdown("""
 <div style="text-align: center; padding: 1rem;">
     <p style="color: #64748B; font-size: 0.8rem; margin: 0;">
-        💰 FinAI - Agente Financeiro Inteligente | Desenvolvido com IA
+        💰Agente Financeiro Inteligente | MykAI
     </p>
 </div>
 """, unsafe_allow_html=True)

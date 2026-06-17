@@ -45,6 +45,7 @@ Extrair e estruturar os dados em JSON, classificando automaticamente cada transa
 | Serviços de utilidade pública | luz, água, gás, internet, telefone, celular |
 | Viagens | passagem, hotel, hospedagem, turismo |
 | Débito | parcela, empréstimo, financiamento, cartão de crédito, dívida |
+| Educação | escola, faculdade, curso, mensalidade, livro, material escolar |
 | Outros | qualquer despesa que não se encaixe acima |
 
 **RENDAS** - Use EXATAMENTE uma destas categorias:

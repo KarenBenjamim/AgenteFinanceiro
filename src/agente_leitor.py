@@ -108,6 +108,7 @@ EXEMPLO ERRADO (NÃO FAÇA ISSO):
 | Serviços de utilidade pública | luz, água, gás, internet, telefone |
 | Viagens | passagem, hotel, hospedagem |
 | Débito | parcela, empréstimo, financiamento, cartão |
+| Educação | escola, faculdade, curso, mensalidade, livro, material escolar, Ingles |
 | Outros | qualquer despesa não listada |
 
 **RENDAS** (entradas, créditos, recebimentos):

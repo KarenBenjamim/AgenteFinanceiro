@@ -19,7 +19,7 @@ from typing import Dict, List, Optional
 CATEGORIAS_DESPESAS = [
     "Alimentação", "Presentes", "Saúde", "Moradia", "Transporte",
     "Pessoal", "Animais de estimação", "Serviços de utilidade pública",
-    "Viagens", "Débito", "Outros"
+    "Viagens", "Débito", "Educação", "Outros"
 ]
 
 CATEGORIAS_RENDAS = ["Poupança", "Pagamento", "Bônus", "Juros", "Outros"]
